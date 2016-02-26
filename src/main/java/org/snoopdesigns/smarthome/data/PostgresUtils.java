@@ -33,7 +33,7 @@ public class PostgresUtils {
 
             Statement stmt = connection.createStatement();
             StringBuilder sb = new StringBuilder();
-            sb.append("INSERT INTO data VALUES (now(),");
+            sb.append("INSERT INTO data(time, v1, v2, temp, hum) VALUES (now(),");
             sb.append("\"");
             sb.append(data.getVoltage1());
             sb.append("\",");
@@ -46,6 +46,7 @@ public class PostgresUtils {
             sb.append("\"");
             sb.append(data.getHumidity());
             sb.append("\")");
+            System.out.println(sb.toString());
             stmt.executeUpdate(sb.toString());
         } catch (Exception e) {
             e.printStackTrace();
