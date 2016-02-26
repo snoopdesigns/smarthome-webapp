@@ -34,18 +34,18 @@ public class PostgresUtils {
             Statement stmt = connection.createStatement();
             StringBuilder sb = new StringBuilder();
             sb.append("INSERT INTO data(time, v1, v2, temp, hum) VALUES (now(),");
-            sb.append("\"");
+            sb.append("'");
             sb.append(data.getVoltage1());
-            sb.append("\",");
-            sb.append("\"");
+            sb.append("',");
+            sb.append("'");
             sb.append(data.getVoltage2());
-            sb.append("\",");
-            sb.append("\"");
+            sb.append("',");
+            sb.append("'");
             sb.append(data.getTemperature());
-            sb.append("\",");
-            sb.append("\"");
+            sb.append("',");
+            sb.append("'");
             sb.append(data.getHumidity());
-            sb.append("\")");
+            sb.append("')");
             System.out.println(sb.toString());
             stmt.executeUpdate(sb.toString());
         } catch (Exception e) {
