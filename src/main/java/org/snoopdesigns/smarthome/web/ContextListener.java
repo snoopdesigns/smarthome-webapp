@@ -1,4 +1,6 @@
-package org.snoopdesigns.webapp;
+package org.snoopdesigns.smarthome.web;
+
+import org.snoopdesigns.smarthome.DBUtils;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;

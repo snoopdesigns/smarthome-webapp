@@ -1,4 +1,6 @@
-package org.snoopdesigns.webapp;
+package org.snoopdesigns.smarthome.web;
+
+import org.snoopdesigns.smarthome.DBUtils;
 
 import java.io.IOException;
 
@@ -15,21 +17,28 @@ import javax.servlet.http.HttpServletResponse;
 )
 public class IncomingDataServlet extends HttpServlet {
 
+    private static final String VOLTAGE_PARAM = "voltage";
+    private static final String IMAGE_PARAM = "image";
+
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("POST called!");
     }
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("GET called!");
+        System.out.println("** New incoming data request **");
         DBUtils dbUtils = (DBUtils)request.getSession().getServletContext().getAttribute(
                 DBUtils.class.getName()
         );
-        if(request.getParameter("data") != null) {
-            dbUtils.addNewData(request.getParameter("data").toString());
+        if("voltage".equals(request.getParameter("action"))) {
+            dbUtils.addNewVoltageData(
+                    request.getParameter("voltage1"),
+                    request.getParameter("voltage2"));
+        } else if("image".equals(request.getParameter("action"))) {
+            //do nothing
+            System.out.println("Image data received");
         }
     }
 }
