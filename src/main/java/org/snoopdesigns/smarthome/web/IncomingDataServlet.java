@@ -20,7 +20,6 @@ public class IncomingDataServlet extends HttpServlet {
     private static final String VOLTAGE_PARAM = "voltage";
     private static final String IMAGE_PARAM = "image";
 
-    private static final String TIMESTAMP_PARAM = "time";
     private static final String VOLTAGE1_PARAM = "v1";
     private static final String VOLTAGE2_PARAM = "v2";
     private static final String TEMPERATURE_PARAM = "t";
@@ -40,7 +39,6 @@ public class IncomingDataServlet extends HttpServlet {
         );
         if("voltage".equals(request.getParameter("action"))) {
             dbUtils.addNewData(
-                    request.getParameter(TIMESTAMP_PARAM),
                     request.getParameter(VOLTAGE1_PARAM),
                     request.getParameter(VOLTAGE2_PARAM),
                     request.getParameter(TEMPERATURE_PARAM),

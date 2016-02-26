@@ -20,6 +20,11 @@
       <version>2.5</version>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>com.heroku.sdk</groupId>
+      <artifactId>heroku-jdbc</artifactId>
+      <version>0.1.1</version>
+    </dependency>
   </dependencies>
   <build>
     <finalName>webapp</finalName>
