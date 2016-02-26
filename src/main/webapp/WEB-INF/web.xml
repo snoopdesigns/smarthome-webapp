@@ -5,6 +5,6 @@
 <web-app>
     <display-name>webapp</display-name>
     <listener>
-        <listener-class>org.snoopdesigns.webapp.ContextListener</listener-class>
+        <listener-class>org.snoopdesigns.smarthome.web.ContextListener</listener-class>
     </listener>
 </web-app>

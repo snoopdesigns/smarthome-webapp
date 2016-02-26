@@ -9,16 +9,21 @@
     ServletContext sc = request.getServletContext();
     DBUtils dbUtils = (DBUtils)sc.getAttribute(DBUtils.class.getName());
   %>
-  <table>
+  <table border="1">
     <tr>
-      <td><b>Data</b></td>
+      <td><b>Timestamp</b></td>
+      <td><b>Voltage 1</b></td>
+      <td><b>Voltage 2</b></td>
+      <td><b>Temperature</b></td>
+      <td><b>Humidity</b></td>
     </tr>
     <%
-      for(String data : dbUtils.getData())
+      for(String data : dbUtils.getVoltageData())
       {
     %>
     <tr>
-      <td><%=data%></td>
+      <td><%=data.split(":")[0]%></td>
+      <td><%=data.split(":")[1]%></td>
     </tr>
     <%
       }

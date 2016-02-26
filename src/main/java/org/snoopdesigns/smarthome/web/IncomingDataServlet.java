@@ -1,6 +1,6 @@
 package org.snoopdesigns.smarthome.web;
 
-import org.snoopdesigns.smarthome.DBUtils;
+import org.snoopdesigns.smarthome.data.DBUtils;
 
 import java.io.IOException;
 
