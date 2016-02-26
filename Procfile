@@ -1,1 +1,1 @@
-web:    java -cp target/classes:target/dependency/* org.snoopdesigns.webapp.Main
+web:    java -jar target/smarthome-webapp-1.0-SNAPSHOT-war-exec.jar
