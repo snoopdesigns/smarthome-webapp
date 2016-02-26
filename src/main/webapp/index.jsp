@@ -1,7 +1,7 @@
 <%@ page import="java.lang.*" %>
 <%@ page import="java.util.*" %>
 <%@ page import="javax.servlet.*" %>
-<%@ page import="org.snoopdesigns.webapp.DBUtils" %>
+<%@ page import="org.snoopdesigns.smarthome.data.*" %>
 <html>
 <head><title>webapp</title></head>
 <body>
@@ -18,12 +18,15 @@
       <td><b>Humidity</b></td>
     </tr>
     <%
-      for(String data : dbUtils.getVoltageData())
+      for(Data data : dbUtils.getData())
       {
     %>
     <tr>
-      <td><%=data.split(":")[0]%></td>
-      <td><%=data.split(":")[1]%></td>
+      <td><%=data.getTimestamp()%></td>
+      <td><%=data.getVoltage1()%></td>
+      <td><%=data.getVoltage2()%></td>
+      <td><%=data.getTemperature()%></td>
+      <td><%=data.getHumidity()%></td>
     </tr>
     <%
       }

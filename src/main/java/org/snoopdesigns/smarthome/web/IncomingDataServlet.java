@@ -20,6 +20,12 @@ public class IncomingDataServlet extends HttpServlet {
     private static final String VOLTAGE_PARAM = "voltage";
     private static final String IMAGE_PARAM = "image";
 
+    private static final String TIMESTAMP_PARAM = "time";
+    private static final String VOLTAGE1_PARAM = "v1";
+    private static final String VOLTAGE2_PARAM = "v2";
+    private static final String TEMPERATURE_PARAM = "t";
+    private static final String HUMIDITY_PARAM = "h";
+
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -33,9 +39,12 @@ public class IncomingDataServlet extends HttpServlet {
                 DBUtils.class.getName()
         );
         if("voltage".equals(request.getParameter("action"))) {
-            dbUtils.addNewVoltageData(
-                    request.getParameter("voltage1"),
-                    request.getParameter("voltage2"));
+            dbUtils.addNewData(
+                    request.getParameter(TIMESTAMP_PARAM),
+                    request.getParameter(VOLTAGE1_PARAM),
+                    request.getParameter(VOLTAGE2_PARAM),
+                    request.getParameter(TEMPERATURE_PARAM),
+                    request.getParameter(HUMIDITY_PARAM));
         } else if("image".equals(request.getParameter("action"))) {
             //do nothing
             System.out.println("Image data received");

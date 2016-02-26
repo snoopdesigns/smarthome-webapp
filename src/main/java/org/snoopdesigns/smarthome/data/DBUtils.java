@@ -5,18 +5,23 @@ import java.util.List;
 
 public class DBUtils {
 
-    private List<String> voltageData = new ArrayList<String>();
+    private List<Data> data = new ArrayList<Data>();
 
-    public List<String> getVoltageData() {
-        return voltageData;
+    public List<Data> getData() {
+        return data;
     }
 
-    public void addNewVoltageData(String voltage1, String voltage2) {
-        this.voltageData.add(voltage1 + ":" + voltage2);
-        System.out.println("New data added: V1=" + voltage1 + ", V2=" + voltage2);
+    public void addNewData(
+            String timestamp,
+            String voltage1,
+            String voltage2,
+            String temp, String hum) {
+        Data toAdd = new Data(timestamp, voltage1, voltage2, temp, hum);
+        this.data.add(toAdd);
+        System.out.println("New data added: " + toAdd);
     }
 
     public void destroy() {
-        this.voltageData.clear();
+        this.data.clear();
     }
 }
